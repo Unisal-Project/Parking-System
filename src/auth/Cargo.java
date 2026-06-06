@@ -1,6 +1,6 @@
 package auth;
 
-public enum cargo {
-    gerente,
-    atendente;
+public enum Cargo {
+    GERENTE,
+    ATENDENTE
 }
