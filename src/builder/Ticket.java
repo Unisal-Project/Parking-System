@@ -1,4 +1,8 @@
 package builder;
+import Camera.Andar;
+import Factory.Veiculo;
+import Strategy.Pagamento;
+
 import java.time.LocalDateTime;
 
 public class Ticket {
