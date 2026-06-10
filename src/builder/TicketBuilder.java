@@ -1,5 +1,7 @@
 package builder;
 
+import Factory.Veiculo;
+
 import java.time.LocalDateTime;
 
 public class TicketBuilder {

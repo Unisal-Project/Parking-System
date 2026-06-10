@@ -1,5 +1,7 @@
 package auth;
 
+import builder.Ticket;
+
 public class Funcionario {
     private String nome;
     private String cpf;
@@ -15,7 +17,7 @@ public class Funcionario {
     }
 
     public boolean validarTicket(Ticket ticket) {
-        return ticket != null && ticket.isValido();
+        return ticket != null && ticket.estaPago();
     }
 
     public String getNome() {
