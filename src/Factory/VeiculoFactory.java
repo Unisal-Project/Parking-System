@@ -1,6 +1,17 @@
 package Factory;
 
+/**
+ * responsavel pela criação de intancias e centraliza a logica
+ *
+ */
 public class VeiculoFactory {
+    /**
+     * cria uma instancia a partir de um tipo informado
+     * @param placa a placa do veicula a ser criado
+     * @param tipo o tipo de veiculo carro ou moto
+     * @return uma instancia carro ou moto , depende do tipo
+     * @throws IllegalArgumentException se o tipo não for reconhecido
+     */
 
     public static Veiculo criarVeiculo(String placa, TipoVeiculo tipo) {
     if (tipo==TipoVeiculo.CARRO){
