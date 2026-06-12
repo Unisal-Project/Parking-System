@@ -31,6 +31,12 @@ public class AuthTest {
 
     /**
      * Verifica se a classe Auth segue o padrão Singleton.
+     *
+     * Pré-condição: Nenhuma.
+     * Entradas: Nenhuma.
+     * Ação: Chama Auth.getInstancia() e compara com a instância atual.
+     * Resultados: As instâncias devem ser idênticas.
+     * Pós-condição: O padrão Singleton é mantido.
      */
     @Test
     void TestarSingleton() {
@@ -40,6 +46,12 @@ public class AuthTest {
 
     /**
      * Verifica se inicialmente não há usuário logado ou se o logout limpa o estado.
+     *
+     * Pré-condição: Nenhuma.
+     * Entradas: Nenhuma.
+     * Ação: Chama auth.logout().
+     * Resultados: O usuário logado deve ser null.
+     * Pós-condição: O sistema garante que não há usuário autenticado.
      */
     @Test
     void TestarLogout() {
@@ -50,6 +62,12 @@ public class AuthTest {
 
     /**
      * Verifica se o login falha para credenciais inexistentes (conforme implementação atual).
+     *
+     * Pré-condição: Credenciais inválidas (ID 999).
+     * Entradas: ID 999, senha "senha_errada".
+     * Ação: Chama auth.login(999, "senha_errada").
+     * Resultados: O login deve retornar falso e o usuário logado deve ser null.
+     * Pós-condição: Nenhum usuário é autenticado indevidamente.
      */
     @Test
     void TestarLoginFalho() {
