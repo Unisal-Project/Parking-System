@@ -1,4 +1,9 @@
 package Factory;
+
+import Camera.Andar;
+import Camera.TipoVaga;
+import builder.Ticket;
+
 /**
  * representa o tipo carro no sistema
  */
@@ -21,14 +26,19 @@ public class Carro extends Veiculo {
      * @return o valor total que deve ser pago
      */
     @Override
-    public double CalcularTarifa(double minutos) {// Ticket ticket
+    public double CalcularTarifa(double minutos, Ticket ticket) {
         if (minutos <= 60) {
             valor = 10;
         } else {
-            double minutosExedidos = minutos - 60;
-            valor = 10 + (minutosExedidos * (5.0 / 60));
+            double minutosExcedidos = minutos - 60;
+            valor = 10 + (minutosExcedidos * (5.0 / 60));
         }
-    return valor;
 
+        Andar andar = ticket.getAndar();
+        if (andar.getTipoVaga() == TipoVaga.COBERTA) {
+            valor += 1.0;
+        }
+
+        return valor;
     }
 }

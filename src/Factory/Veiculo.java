@@ -1,5 +1,7 @@
 package Factory;
 
+import builder.Ticket;
+
 /**
  * classe que representa um veiculo no sistema de estacionamento
  * metodo de calculo de tarifa que devem ser implementadas em cada tipo
@@ -47,6 +49,6 @@ public abstract class Veiculo {
      * @return o valor total a ser cobrado
      */
 
-    public abstract double CalcularTarifa(double minutos );//Ticket ticket
+    public abstract double CalcularTarifa(double minutos, Ticket ticket );
 
 }
