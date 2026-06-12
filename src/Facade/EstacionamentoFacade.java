@@ -29,6 +29,11 @@ public class EstacionamentoFacade {
      * @return veiculo criado
      */
     public Veiculo registrarEntrada(String placa, TipoVeiculo tipo){
+        if(!controleCapacidade.temVagaDisponivel(tipo)){
+            throw new IllegalStateException("Sem vagas disponíveis para: " + tipo);
+        }
+
+
         Veiculo veiculo = VeiculoFactory.criarVeiculo(placa, tipo);
 
         System.out.println("Entrada registrada com sucesso");
