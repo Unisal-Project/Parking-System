@@ -14,6 +14,10 @@ public class VeiculoFactory {
      */
 
     public static Veiculo criarVeiculo(String placa, TipoVeiculo tipo) {
+        if (placa == null) {
+            throw new IllegalArgumentException("Placa não pode ser nula!");
+        }
+
     if (tipo==TipoVeiculo.CARRO){
         return new Carro(placa);
     }
