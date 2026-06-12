@@ -17,8 +17,27 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PagamentoTest {
 
     /**
-     * Verifica se o pagamento por cartão retorna o valor original
-     * sem alterações.
+     * Caso de Teste: Pagamento por Cartão
+     *
+     * Resumo:
+     * Verifica se o pagamento realizado com cartão retorna
+     * o valor original sem aplicação de descontos.
+     *
+     * Pré-condição:
+     * - Um objeto Pagamento deve ser criado utilizando
+     *   a estratégia PagamentoCartao.
+     *
+     * Entradas:
+     * - Valor do pagamento: 10.0
+     *
+     * Ação:
+     * - Executar o método realizarPagamento(10.0).
+     *
+     * Resultado Esperado:
+     * - O valor retornado deve ser igual a 10.0.
+     *
+     * Pós-condição:
+     * - O pagamento foi processado sem alterações no valor.
      */
     @Test
     void PagamentoCartao() {
@@ -28,8 +47,27 @@ public class PagamentoTest {
     }
 
     /**
+     * Caso de Teste: Pagamento via Pix
+     *
+     * Resumo:
      * Verifica se o pagamento via Pix aplica corretamente
      * o desconto de 5%.
+     *
+     * Pré-condição:
+     * - Um objeto Pagamento deve ser criado utilizando
+     *   a estratégia PagamentoPix.
+     *
+     * Entradas:
+     * - Valor do pagamento: 10.0
+     *
+     * Ação:
+     * - Executar o método realizarPagamento(10.0).
+     *
+     * Resultado Esperado:
+     * - O valor retornado deve ser igual a 9.5.
+     *
+     * Pós-condição:
+     * - O pagamento foi processado com desconto de 5%.
      */
     @Test
     void PagamentoPix() {
@@ -39,8 +77,27 @@ public class PagamentoTest {
     }
 
     /**
+     * Caso de Teste: Pagamento em Dinheiro
+     *
+     * Resumo:
      * Verifica se o pagamento em dinheiro aplica corretamente
      * o desconto de 10%.
+     *
+     * Pré-condição:
+     * - Um objeto Pagamento deve ser criado utilizando
+     *   a estratégia PagamentoDinheiro.
+     *
+     * Entradas:
+     * - Valor do pagamento: 10.0
+     *
+     * Ação:
+     * - Executar o método realizarPagamento(10.0).
+     *
+     * Resultado Esperado:
+     * - O valor retornado deve ser igual a 9.0.
+     *
+     * Pós-condição:
+     * - O pagamento foi processado com desconto de 10%.
      */
     @Test
     void PagamentoDinheiro() {
@@ -50,8 +107,27 @@ public class PagamentoTest {
     }
 
     /**
-     * Verifica o comportamento do pagamento via Pix quando
-     * o valor informado é igual a zero.
+     * Caso de Teste: Pagamento Pix com Valor Zero
+     *
+     * Resumo:
+     * Verifica o comportamento do sistema quando um pagamento
+     * via Pix é realizado com valor igual a zero.
+     *
+     * Pré-condição:
+     * - Um objeto Pagamento deve ser criado utilizando
+     *   a estratégia PagamentoPix.
+     *
+     * Entradas:
+     * - Valor do pagamento: 0.0
+     *
+     * Ação:
+     * - Executar o método realizarPagamento(0.0).
+     *
+     * Resultado Esperado:
+     * - O valor retornado deve ser igual a 0.0.
+     *
+     * Pós-condição:
+     * - O pagamento é processado sem erros e permanece com valor zero.
      */
     @Test
     void PagamentoPixValorZero() {
@@ -61,8 +137,27 @@ public class PagamentoTest {
     }
 
     /**
-     * Verifica se o objeto Stub implementa corretamente
-     * a interface MetodoPagamento para fins de teste.
+     * Caso de Teste: Método de Pagamento Stub
+     *
+     * Resumo:
+     * Verifica se a implementação Stub retorna o valor
+     * previamente definido para fins de teste.
+     *
+     * Pré-condição:
+     * - Um objeto Pagamento deve ser criado utilizando
+     *   MetodoPagamentoStub.
+     *
+     * Entradas:
+     * - Valor do pagamento: 10.0
+     *
+     * Ação:
+     * - Executar o método realizarPagamento(10.0).
+     *
+     * Resultado Esperado:
+     * - O valor retornado deve ser igual a 5.0.
+     *
+     * Pós-condição:
+     * - O comportamento da estratégia simulada foi validado.
      */
     @Test
     void MetodoPagamentoStub() {

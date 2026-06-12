@@ -17,18 +17,48 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RegistrarPagamentoTest {
 
     /**
-     * Verifica se o método registrarPagamento da fachada
-     * processa corretamente um pagamento utilizando Pix.
+     * Caso de Teste: Registro de Pagamento pela Fachada
      *
-     * Este teste não tem como objetivo testar todas as formas
-     * de pagamento, pois isso já é responsabilidade da classe
-     * PagamentoTest. Aqui o objetivo é garantir que o Facade
-     * consegue acessar e utilizar o módulo de pagamento corretamente.
+     * Resumo:
+     * Verifica se o método registrarPagamento da classe
+     * EstacionamentoFacade processa corretamente um pagamento
+     * utilizando a estratégia Pix.
+     *
+     * Pré-condição:
+     * - Um objeto EstacionamentoFacade deve estar instanciado.
+     * - A estratégia de pagamento Pix deve estar disponível.
+     *
+     * Entradas:
+     * - Valor do pagamento: 100.0
+     * - Estratégia de pagamento: PagamentoPix
+     *
+     * Ação:
+     * - Executar o método registrarPagamento(100.0, new PagamentoPix()).
+     *
+     * Resultado Esperado:
+     * - O valor retornado deve ser igual a 95.0.
+     * - O desconto de 5% do Pix deve ser aplicado corretamente.
+     *
+     * Pós-condição:
+     * - O pagamento foi processado pela fachada.
+     * - O valor final corresponde ao cálculo realizado pela
+     *   estratégia de pagamento selecionada.
+     *
+     * Observação:
+     * - Este teste valida apenas a integração da fachada com
+     *   o módulo de pagamento.
+     * - As regras específicas de Cartão, Pix e Dinheiro são
+     *   testadas separadamente na classe PagamentoTest.
      */
     @Test
     void RegistrarPagamento() {
         EstacionamentoFacade estFacade = new EstacionamentoFacade(100);
-        double valorFinal = estFacade.registrarPagamento(100.0, new PagamentoPix());
+
+        double valorFinal = estFacade.registrarPagamento(
+                100.0,
+                new PagamentoPix()
+        );
+
         assertEquals(95.0, valorFinal);
     }
 }
