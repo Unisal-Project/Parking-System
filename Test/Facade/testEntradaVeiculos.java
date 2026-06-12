@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class testEstacionamentoFacade {
+public class testEntradaVeiculos {
 
     @Test
     void testRegistrarEntradaCarroComVaga(){
