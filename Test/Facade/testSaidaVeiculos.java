@@ -9,6 +9,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class testSaidaVeiculos {
 
+    /**
+     * RESUMO: Verificar o comportamento da cancela ao registrar a saída
+     * de um veículo, de acordo com a situação de pagamento do ticket
+     * PRÉ CONDIÇÃO: EstacionamentoFacade iniciado e Ticket (stub)
+     * associado a um Andar coberto
+     * ENTRADAS: ticket.status = PAGO
+     * AÇÃO: Chamar facade.registrarSaida(ticket)
+     * RESULTADO: Retorna true, a cancela aberta e ticket.status passa a
+     * FINALIZADO
+     * PÓS CONDIÇÃO: Cancela liberada e status do ticket atualizado para
+     * FINALIZADO
+     */
     @Test
     void testRegistrarSaidaTicketPago(){
         EstacionamentoFacade facade = new EstacionamentoFacade(10);
@@ -22,6 +34,17 @@ public class testSaidaVeiculos {
 
     }
 
+    /**
+     * RESUMO: Verificar o comportamento da cancela ao registrar a saída
+     * de um veículo, de acordo com a situação de pagamento do ticket.
+     * PRÉ CONDIÇÃO: EstacionamentoFacade iniciado e Ticket (stub)
+     * associado a um Andar coberto
+     * ENTRADAS: ticket.status = PENDENTE_PAGAMENTO
+     * AÇÃO: Chamar facade.registrarSaida(ticket)
+     * RESULTADO: Retorna false, a cancela permanece fechada;
+     * ticket.status permanece PENDENTE_PAGAMENTO.
+     * PÓS CONDIÇÃO: Cancela não liberada e  status do ticket não altera
+     */
     @Test
     void testRegistrarSaidaTicketNaoPago(){
         EstacionamentoFacade facade = new EstacionamentoFacade(10);
