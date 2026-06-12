@@ -23,17 +23,12 @@ public class FuncionarioTest {
 
     private Funcionario funcionario;
 
-    /**
-     * Configura o ambiente de teste antes de cada método.
-     */
     @BeforeEach
     void setUp() {
         funcionario = new Funcionario("João Silva", "123.456.789-00", 1, Cargo.ATENDENTE);
     }
 
-    /**
-     * Verifica se o funcionário valida corretamente um ticket com status PAGO.
-     */
+
     @Test
     void ValidarTicketPago() {
         Ticket ticket = new Ticket();
@@ -41,9 +36,6 @@ public class FuncionarioTest {
         assertTrue(funcionario.validarTicket(ticket), "O ticket pago deve ser válido.");
     }
 
-    /**
-     * Verifica se o funcionário valida corretamente um ticket com status FINALIZADO.
-     */
     @Test
     void ValidarTicketFinalizado() {
         Ticket ticket = new Ticket();
@@ -51,9 +43,6 @@ public class FuncionarioTest {
         assertTrue(funcionario.validarTicket(ticket), "O ticket finalizado deve ser válido.");
     }
 
-    /**
-     * Verifica se o funcionário invalida um ticket com status PENDENTE_PAGAMENTO.
-     */
     @Test
     void ValidarTicketPendente() {
         Ticket ticket = new Ticket();
@@ -61,17 +50,11 @@ public class FuncionarioTest {
         assertFalse(funcionario.validarTicket(ticket), "O ticket pendente de pagamento deve ser inválido.");
     }
 
-    /**
-     * Verifica se o funcionário invalida um ticket nulo.
-     */
     @Test
     void ValidarTicketNulo() {
         assertFalse(funcionario.validarTicket(null), "Um ticket nulo deve ser inválido.");
     }
 
-    /**
-     * Verifica se os dados do funcionário são retornados corretamente.
-     */
     @Test
     void VerificarDadosFuncionario() {
         assertEquals("João Silva", funcionario.getNome());
