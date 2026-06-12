@@ -8,6 +8,8 @@ import builder.*;
 
 /**
  * centraliza e simplifica  o sistema e as principais operações
+ * @author Pedro Monteiro
+ *  @Verson 1.0
  */
 public class EstacionamentoFacade {
     /** controle de capacidade de vagass do estacionametno*/

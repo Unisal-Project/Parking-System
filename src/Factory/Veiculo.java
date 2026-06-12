@@ -5,6 +5,8 @@ import builder.Ticket;
 /**
  * classe que representa um veiculo no sistema de estacionamento
  * metodo de calculo de tarifa que devem ser implementadas em cada tipo
+ * @author Pedro Monteiro
+ *  @Verson 1.0
  */
 
 public abstract class Veiculo {

@@ -1,6 +1,8 @@
 package Facade;
 /**
  *  responsável por controlar o acesso de entrada e saída de veículos.
+ *  @author Pedro Monteiro
+ *  @Verson 1.0
  */
 
 import Camera.Andar;

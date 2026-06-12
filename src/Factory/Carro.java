@@ -5,7 +5,10 @@ import Camera.TipoVaga;
 import builder.Ticket;
 
 /**
+ *
  * representa o tipo carro no sistema
+ *@author Pedro Monteiro
+ * @Verson 1.0
  */
 
 public class Carro extends Veiculo {

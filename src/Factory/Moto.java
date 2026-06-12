@@ -6,6 +6,8 @@ import builder.Ticket;
 
 /**
  * representa o tipo moto no sistema
+ * @author Pedro Monteiro
+ *  @Verson 1.0
  */
 
 public class Moto  extends Veiculo {

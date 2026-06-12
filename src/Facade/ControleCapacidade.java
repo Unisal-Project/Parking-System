@@ -6,6 +6,8 @@ import builder.*;
  * controla a capacidade de vagas no estacionamento
  *  sendo 70% do total de vagas para carros
  *  e 30% disponiveis para motos
+ *  @author Pedro Monteiro
+ *  @Verson 1.0
  */
 public class ControleCapacidade {
     /**
