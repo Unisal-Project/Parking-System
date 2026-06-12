@@ -28,6 +28,13 @@ public class TicketBuilderTest {
 
     @Test
     void TestarCriacaoCompletaDoTicket() {
+        /*
+         * Pré-condição: TicketBuilder, Veiculo e LocalDateTime inicializados.
+         * Entradas: Veículo "ABC-1234", Data de entrada atual, Status PENDENTE_PAGAMENTO.
+         * Ação: Chamar métodos comVeiculo, comEntrada, comStatus e build.
+         * Resultados: Ticket criado com todos os campos preenchidos conforme as entradas.
+         * Pós-condição: Um objeto Ticket válido é retornado com as informações fornecidas.
+         */
         // Executa o builder com todos os parâmetros
         Ticket ticket = builder
                 .comVeiculo(carro)
@@ -44,6 +51,13 @@ public class TicketBuilderTest {
 
     @Test
     void TestarCriacaoParcialTicket() {
+        /*
+         * Pré-condição: TicketBuilder e Veiculo inicializados.
+         * Entradas: Veículo "ABC-1234".
+         * Ação: Chamar método comVeiculo e build.
+         * Resultados: Ticket criado apenas com o veículo, outros campos nulos.
+         * Pós-condição: Objeto Ticket gerado com dados parciais.
+         */
         // Testa a criação apenas com o veículo
         Ticket ticket = builder.comVeiculo(carro).build();
 
@@ -55,6 +69,13 @@ public class TicketBuilderTest {
 
     @Test
     void TestarAlteracaoDeStatusNoBuilder() {
+        /*
+         * Pré-condição: TicketBuilder inicializado.
+         * Entradas: Status PAGO.
+         * Ação: Chamar método comStatus e build.
+         * Resultados: Ticket criado com status PAGO e método estaPago() retornando true.
+         * Pós-condição: Ticket validado como pago.
+         */
         // Testa se o builder permite definir o status PAGO
         Ticket ticket = builder.comStatus(StatusTicket.PAGO).build();
 
