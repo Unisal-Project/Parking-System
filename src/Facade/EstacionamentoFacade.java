@@ -6,14 +6,36 @@ import Strategy.*;
 import auth.*;
 import builder.*;
 
+/**
+ * centraliza e simplifica  o sistema e as principais operações
+ * @author Pedro Monteiro
+ *  @Verson 1.0
+ */
 public class EstacionamentoFacade {
+    /** controle de capacidade de vagass do estacionametno*/
+
     private ControleCapacidade controleCapacidade;
 
+    /**
+     * inicializa o controle de capacidade com o total de vaggas informadas
+     * @param totalVagas o numero total de vagas no estacionamento
+     */
     public EstacionamentoFacade(int totalVagas) {
         this.controleCapacidade = new ControleCapacidade(totalVagas);
     }
 
+    /**
+     * registra a entrada de um veiculo no estacionamento
+     * @param placa placa do veiculo
+     * @param tipo o tipo do veiculo moto ou carro
+     * @return veiculo criado
+     */
     public Veiculo registrarEntrada(String placa, TipoVeiculo tipo){
+        if(!controleCapacidade.temVagaDisponivel(tipo)){
+            throw new IllegalStateException("Sem vagas disponíveis para: " + tipo);
+        }
+
+
         Veiculo veiculo = VeiculoFactory.criarVeiculo(placa, tipo);
 
         System.out.println("Entrada registrada com sucesso");
@@ -23,6 +45,12 @@ public class EstacionamentoFacade {
         return veiculo;
     }
 
+    /**
+     *  Registra o pagamento de um valor utilizando o metodo de pagamento informado.
+     * @param valor valor a ser pago
+     * @param metodoPagamento metodo de pagamento escolido
+     * @return o valor final do pagamento
+     */
     public double registrarPagamento(double valor, MetodoPagamento metodoPagamento){
         Pagamento pagamento = new Pagamento(metodoPagamento);
 
@@ -33,6 +61,12 @@ public class EstacionamentoFacade {
 
         return valorFinal;
     }
+
+    /**
+     * Registra a saída de um veículo do estacionamento.
+     * @param ticket o ticket referente ao veículo que está saindo
+     * @return true se a cancela for aberta e false se o pagamento estiver pendente
+     */
     public boolean registrarSaida(Ticket ticket) {
 
         if (!ticket.estaPago()) {
@@ -53,6 +87,12 @@ public class EstacionamentoFacade {
         return cancelaAberta;
     }
 
+    /**
+     * atualiza a localização de um ticket desde que haja vaga
+     * @param ticket o ticket atual cuja a localização é atualizada
+     * @param novoAndar o andar para qual o veiculo foi movido
+     * @return true se a localização for atualizada e false se não houver vagas disponiveis
+     */
     public boolean atualizarLocalizacao(Ticket ticket, Andar novoAndar) {
 
         TipoVeiculo tipo = ticket.getVeiculo().getTipoVeiculo();
